@@ -1,38 +1,59 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
-	<link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
+<body>
+  <script>
+    function secondHighest(arr) {
+      // Convert array elements to numbers
+      arr = arr.map(Number);
 
-<body>	
-	<script>
-		function secondHighest(arr) {
-			//Write your code here
-			let max=0;
-			let res=-Infinity;
-			let max=Math.max(...arr);
-			for(let i=0;i<arr.length;i++){
-				if(arr[i]!=max) res=Math.max(res,arr[i]);
-			}
-			return res;
-		}
+      // Find the maximum value
+      const max = Math.max(...arr);
 
-		function Main() {
-		    var n = prompt("Enter the number of elements");
-			var arr = [];
-			for (var i = 0; i < n; i++) {
-				arr[i] = prompt("Enter element " + (i+1));
-			}
-			alert(secondHighest(arr));
-		}
-		Main();
-	</script>
+      // Filter out the maximum value and find the new maximum
+      const filteredArr = arr.filter((num) => num !== max);
 
-    <script type="text/javascript" src="./script.js">
-</script>
+      // If all elements are the same, return -Infinity
+      if (filteredArr.length === 0) return -Infinity;
 
+      // Return the second highest value
+      return Math.max(...filteredArr);
+    }
+
+    function Main() {
+      // Get the number of elements
+      const n = parseInt(prompt("Enter the number of elements"));
+
+      // Validate input
+      if (isNaN(n) || n <= 0) {
+        alert("Invalid input. Please enter a positive number.");
+        return;
+      }
+
+      // Get array elements
+      const arr = [];
+      for (let i = 0; i < n; i++) {
+        const input = prompt("Enter element " + (i + 1));
+        const num = parseFloat(input);
+
+        // Validate input
+        if (isNaN(num)) {
+          alert("Invalid input. Please enter a valid number.");
+          return;
+        }
+
+        arr.push(num);
+      }
+
+      // Find and display the second highest number
+      const result = secondHighest(arr);
+      alert("The second highest number is: " + result);
+    }
+
+    // Run the program
+    Main();
+  </script>
 </body>
-
 </html>
