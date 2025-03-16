@@ -12,9 +12,7 @@
 			//Write your code here
 			let max=0;
 			let res=-Infinity;
-			for(let i=0;i<arr.length;i++){
-				max=Math.max(max,arr[i]);
-			}
+			let max=Math.max(...arr);
 			for(let i=0;i<arr.length;i++){
 				if(arr[i]!=max) res=Math.max(res,arr[i]);
 			}
@@ -22,7 +20,7 @@
 		}
 
 		function Main() {
-			var n = prompt("Enter the number of elements");
+		    var n = prompt("Enter the number of elements");
 			var arr = [];
 			for (var i = 0; i < n; i++) {
 				arr[i] = prompt("Enter element " + (i+1));
