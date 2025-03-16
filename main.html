@@ -23,33 +23,12 @@
     }
 
     function Main() {
-      // Get the number of elements
-      const n = parseInt(prompt("Enter the number of elements"));
-
-      // Validate input
-      if (isNaN(n) || n <= 0) {
-        alert("Invalid input. Please enter a positive number.");
-        return;
+      var n = prompt("Enter the number of elements");
+      var arr = [];
+      for (var i = 0; i < n; i++) {
+        arr[i] = prompt("Enter element " + (i + 1));
       }
-
-      // Get array elements
-      const arr = [];
-      for (let i = 0; i < n; i++) {
-        const input = prompt("Enter element " + (i + 1));
-        const num = parseFloat(input);
-
-        // Validate input
-        if (isNaN(num)) {
-          alert("Invalid input. Please enter a valid number.");
-          return;
-        }
-
-        arr.push(num);
-      }
-
-      // Find and display the second highest number
-      const result = secondHighest(arr);
-      alert("The second highest number is: " + result);
+      alert(secondHighest(arr));
     }
 
     // Run the program
